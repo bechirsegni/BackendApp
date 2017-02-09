@@ -1,0 +1,12 @@
+
+    <h2>Create an Account</h2>
+
+    <%= form_for @account do |f| %>
+    <%= f.fields_for :owner do |owner| %>
+    <%= owner.email_field :email %>
+    <%= owner.password_field :password %>
+    <%= owner.password_field :password_confirmation %>
+    <% end %>
+    <%= f.text_field :subdomain%>
+    <%= f.submit "submit" %>
+    <% end %>
