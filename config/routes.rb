@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   constraints(SubdomainPresent) do
     root 'home#project', as: :subdomain_root
     devise_for :users
+    get  'employees',  to: 'users#new'
+    post 'employees',  to: 'users#add_user'
   end
 
   constraints(SubdomainBlank) do

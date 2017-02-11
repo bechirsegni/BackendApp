@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'apartment'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 
 group :development, :test do
