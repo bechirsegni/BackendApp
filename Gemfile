@@ -21,6 +21,7 @@ gem 'awesome_nested_set'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 end
 
 group :development do
