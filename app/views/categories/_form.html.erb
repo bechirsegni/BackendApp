@@ -1,0 +1,8 @@
+<%= form_for @category do |f|%>
+  <%= f.select :parent_id,
+      nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" },
+                                              {:include_blank => 'Select Category'} %>
+  <%= f.text_field :name%>
+  <%= f.submit%>
+
+<%end%>

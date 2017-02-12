@@ -6,7 +6,7 @@ class Account < ApplicationRecord
   validates :owner, presence: true
   validates :subdomain, presence: true,
                         uniqueness: { case_sensitive: false },
-                          format: { with: /\A[\w\-]+\Z/i, message: 'contains invalid characters' },
+                        format: { with: /\A[\w\-]+\Z/i, message: 'contains invalid characters' },
                         exclusion: { in: RESTRICTED_SUBDOMAINS, message: 'restricted' }
 
   accepts_nested_attributes_for :owner

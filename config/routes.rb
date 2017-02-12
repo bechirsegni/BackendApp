@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     devise_for :users
     get  'employees',  to: 'users#new'
     post 'employees',  to: 'users#add_user'
+    resources :categories
   end
 
   constraints(SubdomainBlank) do
