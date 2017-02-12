@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get  'employees',  to: 'users#new'
     post 'employees',  to: 'users#add_user'
     resources :categories
+    resources :products
   end
 
   constraints(SubdomainBlank) do
