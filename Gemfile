@@ -18,10 +18,10 @@ gem 'devise'
 gem 'apartment'
 gem 'awesome_nested_set'
 
-
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+  gem 'rubocop', '~> 0.47.1'
 end
 
 group :development do
@@ -29,4 +29,5 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
 end

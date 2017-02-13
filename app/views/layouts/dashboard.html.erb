@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  <div class="app" id="app">
+    <%= render 'dashboard/commons/aside'%>
+    <%= render 'dashboard/commons/navbar'%>
+    <div ui-view class="app-body" id="view">
+      <%= yield %>
+    </div>
+  </div>
+    <%= javascript_include_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

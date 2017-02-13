@@ -1,4 +1,11 @@
 <%= form_for User.new , :url => {:action => "add_user"} do |user| %>
+
+  <%= user.label :first_name%>
+  <%= user.text_field :first_name %>
+  <%= user.label :last_name%>
+  <%= user.text_field :username %>
+  <%= user.label :username%>
+  <%= user.text_field :last_name %>
   <%=user.email_field :email%>
   <%=user.password_field :password%>
   <%=user.password_field :password_confirmation%>

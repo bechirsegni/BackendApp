@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   before_save { email.downcase! }
+  before_save :set_username
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   devise :database_authenticatable, :registerable,
@@ -10,5 +12,15 @@ class User < ApplicationRecord
                           uniqueness: { case_sensitive: false }
 
    validates :password, presence: true, length: { minimum: 8 }
+   validates :first_name, presence: true
+   validates :last_name,  presence: true
+   validates :username, uniqueness: { case_sensitive: false }
+   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+
+   private
+
+   def set_username
+     self.username = self.first_name + self.last_name if username.nil?
+   end
 
 end
