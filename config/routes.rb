@@ -12,20 +12,23 @@ end
 
 Rails.application.routes.draw do
   constraints(SubdomainPresent) do
-    resources :categories
-    resources :products
-
     authenticated :user do
-      root 'home#project', :as => :authenticated_root
+      root 'home#project', as: :authenticated_root
     end
     root :to => redirect('/login')
 
     devise_for :users, path: '',
-     path_names: {sign_up: '', sign_in: 'login', sign_out: 'logout'}
+      path_names: { sign_up: '', sign_in: 'login', sign_out: 'logout' }
+    namespace :manager do
+      get  '/',          to: 'dashboard#index'
+      get  'dashboard',  to: 'dashboard#index'
+      get  'profile',    to: 'dashboard#profile'
+      get  'employees',  to: 'users#new'
+      post 'employees',  to: 'users#add_user'
 
-    get  'employees',  to: 'users#new'
-    post 'employees',  to: 'users#add_user'
-    get  'dashboard',  to: 'dashboard#index'
+      resources :categories
+      resources :products
+    end
   end
 
   constraints(SubdomainBlank) do

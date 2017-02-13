@@ -17,6 +17,10 @@ class User < ApplicationRecord
    validates :username, uniqueness: { case_sensitive: false }
    validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
+   def full_name
+     self.first_name.capitalize + ' ' + self.last_name.capitalize
+   end
+
    private
 
    def set_username
