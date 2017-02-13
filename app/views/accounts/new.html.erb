@@ -1,7 +1,7 @@
 
     <h2>Create an Account</h2>
 
-    <%= form_for @account do |f| %>
+    <%= form_for @account , url: signup_path do |f| %>
     <%= f.fields_for :owner do |owner| %>
     <%= owner.label :first_name%>
     <%= owner.text_field :first_name %>

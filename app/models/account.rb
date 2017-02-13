@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-  RESTRICTED_SUBDOMAINS = %w(www)
+  RESTRICTED_SUBDOMAINS = %w(www public admin app demo web blog)
 
   belongs_to :owner, class_name: 'User'
 

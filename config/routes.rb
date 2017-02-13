@@ -12,17 +12,25 @@ end
 
 Rails.application.routes.draw do
   constraints(SubdomainPresent) do
-    root 'home#project', as: :subdomain_root
-    devise_for :users
-    get  'employees',  to: 'users#new'
-    post 'employees',  to: 'users#add_user'
     resources :categories
     resources :products
-    get 'dashboard', to: 'dashboard#index'
+
+    authenticated :user do
+      root 'home#project', :as => :authenticated_root
+    end
+    root :to => redirect('/login')
+
+    devise_for :users, path: '',
+     path_names: {sign_up: '', sign_in: 'login', sign_out: 'logout'}
+
+    get  'employees',  to: 'users#new'
+    post 'employees',  to: 'users#add_user'
+    get  'dashboard',  to: 'dashboard#index'
   end
 
   constraints(SubdomainBlank) do
     root 'home#index'
-    resources :accounts, only: [:new, :create]
+    get  'signup', to: 'accounts#new'
+    post 'signup', to: 'accounts#create'
   end
 end
