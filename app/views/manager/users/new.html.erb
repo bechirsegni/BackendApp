@@ -9,5 +9,6 @@
   <%=user.email_field :email%>
   <%=user.password_field :password%>
   <%=user.password_field :password_confirmation%>
+  <%=user.select :admin, [['Employee', false], ['Admin', true]], selected: false%>
   <%=user.submit 'add'%>
 <%end%>

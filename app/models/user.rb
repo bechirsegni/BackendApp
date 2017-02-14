@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  devise :database_authenticatable, :registerable,
+  devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
    validates :email, presence: true, length: { maximum: 255 },
@@ -15,8 +15,7 @@ class User < ApplicationRecord
    validates :first_name, presence: true
    validates :last_name,  presence: true
    validates :username, uniqueness: { case_sensitive: false }
-   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-
+   
    def full_name
      self.first_name.capitalize + ' ' + self.last_name.capitalize
    end
