@@ -2,4 +2,5 @@
 <%@products.each do |p|%>
   <%=p.title%><br>
   <%=p.description%>
+  <%= image_tag p.image.url(:thumb) %>
 <%end%>

@@ -20,6 +20,17 @@ class User < ApplicationRecord
      self.first_name.capitalize + ' ' + self.last_name.capitalize
    end
 
+   def get_account
+     if self.admin?
+        current = Apartment::Tenant.current
+        Apartment::Tenant.switch!('public')
+        account = Account.where(subdomain: current)
+        Apartment::Tenant.switch!(current)
+        account
+      end
+   end
+
+
    private
 
    def set_username

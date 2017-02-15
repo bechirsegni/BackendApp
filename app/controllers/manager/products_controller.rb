@@ -15,7 +15,7 @@ class Manager::ProductsController < Manager::BaseManagerController
   def create
     @product = Product.create(products_params)
     if @product.save!
-      redirect_to products_path
+      redirect_to manager_products_url
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Manager::ProductsController < Manager::BaseManagerController
   def update
     @product.update_attributes(products_params)
     if @product.save!
-      redirect_to @product
+      redirect_to manager_products_url
     else
       render :edit
     end
@@ -49,7 +49,9 @@ private
   end
 
   def products_params
-    params.require(:product).permit(:title,:description, :category_id)
+    prices_keys = params[:product].try(:fetch, :price, {}).keys
+    params.require(:product).permit(:title,:duration, :description,:ingredients,
+                                    :category_id,:image, price: prices_keys)
   end
 
 end

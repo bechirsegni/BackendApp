@@ -1,12 +1,80 @@
-<%= form_for [:manager, @product] do |f|%>
-  <%=f.label :title%>
-  <%=f.text_field :title%>
-  <%=f.label :description%>
-  <%=f.text_field :description%>
-
-  <%= f.select :category_id,
+<div class="padding">
+  <h1 class='h1' >Create Item</h1>
+  <hr>
+<%= form_for [:manager, @product], class:'p-x-xs', html: { multipart: true } do |f|%>
+  <h6 style="font-size: 1.3rem;">Details</h6>
+  <p class=p-form >Try to impress your clients by giving them best description. </p>
+  <div class="form-group row">
+    <%=f.label :title, class:'col-sm-2 form-control-label'%>
+    <div class="col-sm-10">
+      <%=f.text_field :title, class:'form-control', placeholder:'Product Title'%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%=f.label :category, class:'col-sm-2 form-control-label'%>
+    <div class="col-sm-10">
+    <%= f.select :category_id,
       nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" },
-                                              {:include_blank => 'Select Category'} %>
+                                              {:include_blank => 'Select Category'},
+                                               class:'form-control input-c' %>
 
-  <%=f.submit%>
+  </div>
+</div>
+  <div class="form-group row">
+    <%=f.label :description, class:'col-sm-2 form-control-label'%>
+    <div class="col-sm-10">
+      <%=f.text_area :description, class:'form-control',
+        placeholder: 'Enter a description of this product. Describe details like what it is made of'%>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%=f.label 'Ingredients', class:'col-sm-2 form-control-label'%>
+    <div class="col-sm-10">
+      <%=f.text_field :ingredients, class:'form-control',
+           placeholder:' Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese'%>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%=f.label 'Cooking Duration', class:'col-sm-2 form-control-label'%>
+    <div class="col-sm-10">
+      <%=f.text_field :duration, class:'form-control', placeholder:'35 Minutes'%>
+    </div>
+  </div>
+
+
+    <div class="form-group row">
+      <%=f.label 'Image', class:'col-sm-2 form-control-label'%>
+      <div class="col-sm-10">
+        <span class="btn btn-default btn-file">
+            Upload an Image <%= f.file_field :image %>
+        </span>
+      </div>
+    </div>
+
+
+
+
+  <h6 style="font-size: 1.3rem;">Variation</h6>
+  <p class=p-form>Add prices, sizes or SKUs. </p>
+  <div class="form-group row">
+      <div class="col-sm-12">
+        <div class="row">
+    <%=f.fields_for :price do |p|%>
+    <div class="col-sm-9">
+        <%=f.label :Variation, class:'form-control-label'%>
+        <%=p.text_field :name, class:'form-control', placeholder:'regular'%>
+      </div>
+      <div class="col-sm-3">
+        <%=f.label :Price, class:'form-control-label'%>
+        <%=p.text_field :price, class:'form-control', placeholder:'30$'%>
+      </div>
+    <%end%>
+      </div>
+    </div>
+  </div>
+
+  <%=f.submit 'Save', class:'btn btn-regular' ,style:'background:#2996cc; color:white;'%>
 <%end%>
+</div>

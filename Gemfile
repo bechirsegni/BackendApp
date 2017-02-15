@@ -19,6 +19,8 @@ gem 'devise_uid'
 gem 'apartment'
 gem 'awesome_nested_set'
 
+gem "paperclip", "~> 5.0.0"
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'bcrypt', '~> 3.1', '>= 3.1.11'
