@@ -1,14 +1,62 @@
-<%= form_for User.new , :url => {:action => "add_user"} do |user| %>
+<div class="padding">
+  <h1 class='hi1' >New Employees</h1>
+  <hr>
+<%= form_for User.new , :url => {:action => "add_user"}, class:'p-x-xs' do |user| %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= user.label :first_name, class:'form-control-label'%>
+      <%= user.text_field :first_name, class:'form-control', placeholder:'First Name' %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= user.label :last_name, class:'form-control-label'%>
+      <%= user.text_field :last_name, class:'form-control', placeholder:'Last Name' %>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= user.label :username, class:'form-control-label'%>
+        <%= user.text_field :username, class:'form-control', placeholder:'Username' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= user.label :email, class:'form-control-label'%>
+        <%= user.email_field :email, class:'form-control', placeholder:'Email' %>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= user.label :password, class:'form-control-label'%>
+          <%= user.password_field :password, class:'form-control', placeholder:'Password' %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= user.label :email, class:'form-control-label'%>
+          <%= user.password_field :password_confirmation, class:'form-control', placeholder:'Password Confirmation' %>
+        </div>
+      </div>
+      </div>
 
-  <%= user.label :first_name%>
-  <%= user.text_field :first_name %>
-  <%= user.label :last_name%>
-  <%= user.text_field :username %>
-  <%= user.label :username%>
-  <%= user.text_field :last_name %>
-  <%=user.email_field :email%>
-  <%=user.password_field :password%>
-  <%=user.password_field :password_confirmation%>
-  <%=user.select :admin, [['Employee', false], ['Admin', true]], selected: false%>
-  <%=user.submit 'add'%>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= user.label 'Role', class:'form-control-label'%>
+            <%= user.select :admin, [['Employee', false], ['Admin', true]], selected: false, class:'selectpicker' %>
+          </div>
+        </div>
+        <div class="col-md-6">,
+          <div class="form-group">
+            <%=user.submit 'Save Employee',class:'btn btn-regular' ,style:'background:#2996cc; color:white;'%>
+          </div>
+        </div>
+        </div>
 <%end%>
+</div>

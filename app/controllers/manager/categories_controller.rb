@@ -10,7 +10,7 @@ class Manager::CategoriesController < Manager::BaseManagerController
   def create
     @category = Category.create(categories_params)
     if @category.save!
-      redirect_to categories_path
+      redirect_to manager_categories_path
     else
       render :new
     end

@@ -1,0 +1,28 @@
+<div class="padding">
+  <div class="row">
+    <div class="col-md-10">
+      <h1 class='hi1' >Employees</h1>
+    </div>
+    <div class="col-md-2">
+      <%=link_to "Add new User", manager_employees_new_path, class:'btn btn-regular',
+          style:'background:#2996cc; color:white;'%>
+    </div>
+  </div>
+  <hr>
+  <div class="padding">
+  <%@users.each do |c|%>
+  <div class="row">
+    <div class="col-md-6">
+      <%=c.full_name%>
+    </div>
+    <div class="col-md-5">
+      <p> <%=c.email%></p>
+    </div>
+    <div class="col-md-1">
+      <p>Delete</p>
+    </div>
+    </div>
+    <hr style="margin-top: 0rem;">
+  <%end%>
+</div>
+</div>

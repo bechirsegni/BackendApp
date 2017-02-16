@@ -23,8 +23,9 @@ Rails.application.routes.draw do
       get  '/',          to: 'dashboard#index'
       get  'dashboard',  to: 'dashboard#index'
       get  'profile',    to: 'dashboard#profile'
-      get  'employees',  to: 'users#new'
-      post 'employees',  to: 'users#add_user'
+      get  'employees',  to: 'users#index'
+      get  'employees/new',  to: 'users#new'
+      post 'employees/new',  to: 'users#add_user'
 
       resources :categories
       resources :products

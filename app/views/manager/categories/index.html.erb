@@ -1,3 +1,17 @@
-<%@categories.each do |c|%>
-<%=c.name%>
-<%end%>
+<%= render 'form'%>
+<div class="padding">
+  <%@categories.each do |c|%>
+  <div class="row">
+    <div class="col-md-10">
+      <%=c.name%>
+    </div>
+    <div class="col-md-1">
+      <p>0 Items</p>
+    </div>
+    <div class="col-md-1">
+      <p>Delete</p>
+    </div>
+    </div>
+    <hr style="margin-top: 0rem;">
+  <%end%>
+</div>

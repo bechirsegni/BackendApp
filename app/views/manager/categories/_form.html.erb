@@ -1,8 +1,24 @@
-<%= form_for [:manager, @category]  do |f|%>
+<div class="padding">
+  <h1 class='hi1' >Categories</h1>
+  <hr>
+<%= form_for [:manager, Category.new] , class:'p-x-xs' do |f|%>
+<div class="row">
+<div class="col-md-4">
+
   <%= f.select :parent_id,
       nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" },
-                                              {:include_blank => 'Select Category'} %>
-  <%= f.text_field :name%>
-  <%= f.submit%>
+                                              {:include_blank => 'Select Category'},
+                                              class:'form-control input-c' %>
+  <p class="p-form" style="text-align: center;" >Only when you are trying to create a sub category </p>
+</div>
+<div class="col-md-6">
 
+      <%=f.text_field :name, class:'form-control', placeholder:'Category Name'%>
+    </div>
+<div class="col-md-2">
+<%=f.submit 'Create Category', class:'btn btn-regular' ,style:'background:#2996cc; color:white;'%>
+</div>
+</div>
 <%end%>
+<hr style='margin-bottom: 0rem;'>
+</div>
