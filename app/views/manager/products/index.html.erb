@@ -9,9 +9,23 @@
     </div>
   </div>
   <hr>
+  <%if @products.empty?%>
+  <div class="no_product">
+      <p>logo</p>
+      <div class="no_product_header">
+        <h1 class="no_product_h1">You Product Library</h1>
+        <p class="no_product_p">Create items with names, photos and prices to speed-up checkout. Monitor your most popular items with item-level reporting. Create and update items with CSV import, you can download our template to get started.</p>
+        <%=link_to "Add new Product", new_manager_product_path, class:'btn btn-primary',
+            style:'background:#2996cc; color:white;'%>
+      </div>
+  </div>
+  <%else%>
 <%@products.each do |p|%>
   <%=p.title%><br>
   <%=p.description%>
   <%= image_tag p.image.url(:thumb) %>
 <%end%>
+<%end%>
+
+
 </div>

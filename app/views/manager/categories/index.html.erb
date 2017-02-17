@@ -1,5 +1,14 @@
 <%= render 'form'%>
 <div class="padding">
+  <%if @categories.empty?%>
+  <div class="no_product">
+      <p>logo</p>
+      <div class="no_product_header">
+        <h1 class="no_product_h1">You Product Categories</h1>
+        <p class="no_product_p">Categories make item organization easy. Monitor your most popular categories with reports.</p>
+      </div>
+  </div>
+  <%else%>
   <%@categories.each do |c|%>
   <div class="row">
     <div class="col-md-10">
@@ -13,5 +22,6 @@
     </div>
     </div>
     <hr style="margin-top: 0rem;">
+  <%end%>
   <%end%>
 </div>

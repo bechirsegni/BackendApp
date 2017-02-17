@@ -15,7 +15,7 @@ class User < ApplicationRecord
    validates :first_name, presence: true
    validates :last_name,  presence: true
    validates :username, uniqueness: { case_sensitive: false }
-   
+
    def full_name
      self.first_name.capitalize + ' ' + self.last_name.capitalize
    end
@@ -30,6 +30,8 @@ class User < ApplicationRecord
       end
    end
 
+   scope :employees, -> {where(admin: false)}
+   scope :managers, -> {where(admin: true)}
 
    private
 

@@ -10,19 +10,23 @@
   </div>
   <hr>
   <div class="padding">
-  <%@users.each do |c|%>
-  <div class="row">
-    <div class="col-md-6">
-      <%=c.full_name%>
+    <%@users.managers.each do |c|%>
+        <%= render 'user', c: c%>
+    <%end%>
+    <%if @users.employees.empty?%>
+    <div class="no_product">
+        <p>logo</p>
+        <div class="no_product_header">
+          <h1 class="no_product_h1">Add new Employe</h1>
+          <p class="no_product_p">Add employees with names, email and password to help them get started taking orders.</p>
+          <%=link_to "Add new User", manager_employees_new_path, class:'btn btn-regular',
+              style:'background:#2996cc; color:white;'%>
+        </div>
     </div>
-    <div class="col-md-5">
-      <p> <%=c.email%></p>
-    </div>
-    <div class="col-md-1">
-      <p>Delete</p>
-    </div>
-    </div>
-    <hr style="margin-top: 0rem;">
+    <%else%>
+      <%@users.employees.each do |c|%>
+          <%= render 'user', c: c%>
+      <%end%>
   <%end%>
 </div>
 </div>
