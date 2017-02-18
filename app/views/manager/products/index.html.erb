@@ -20,11 +20,7 @@
       </div>
   </div>
   <%else%>
-<%@products.each do |p|%>
-  <%=p.title%><br>
-  <%=p.description%>
-  <%= image_tag p.image.url(:thumb) %>
-<%end%>
+<%=render 'product'%>
 <%end%>
 
 

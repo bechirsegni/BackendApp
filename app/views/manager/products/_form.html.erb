@@ -13,7 +13,8 @@
     <%= f.select :category_id,
       nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" },
                                               {:include_blank => 'Select Category'},
-                                               class:'form-control input-c' %>
+                                               class:'form-control chosen-select' %>
+
 
   </div>
 </div>

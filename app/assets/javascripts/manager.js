@@ -12,17 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require dashboard/config.lazyload.js
-//= require dashboard/palette.js
-//= require dashboard/ui-load.js
-//= require dashboard/ui-jp.js
-//= require dashboard/ui-include.js
-//= require dashboard/ui-device.js
-//= require dashboard/ui-form.js
-//= require dashboard/ui-nav.js
-//= require dashboard/ui-screenfull.js
-//= require dashboard/ui-scroll-to.js
-//= require dashboard/ui-toggle-class.js
-//= require dashboard/app.js
-//= require turbolinks
-//= require_tree .
+//= require chosen-jquery
+//= require manager/chosen
+//= require_self

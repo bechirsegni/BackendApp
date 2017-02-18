@@ -28,17 +28,19 @@
             <li class="nav-header hidden-folded">
               <small class="text-muted">Main</small>
             </li>
-
             <li>
-              <a href="dashboard.html" >
-                <span class="nav-icon">
-                  <i class="material-icons">&#xe3fc;
-                    <span ui-include="'../assets/images/i_0.svg'"></span>
-                  </i>
-                </span>
-                <span class="nav-text">Dashboard</span>
-              </a>
+              <%=link_to 'Home', manager_dashboard_path%>
             </li>
+            <li>
+              <%=link_to 'Products', manager_products_path%>
+            </li>
+            <li>
+              <%=link_to 'Categories', manager_categories_path%>
+            </li>
+            <li>
+              <%=link_to 'Employees', manager_employees_path%>
+            </li>
+
 
             <li class="nav-header hidden-folded">
               <small class="text-muted">Help</small>
@@ -53,8 +55,19 @@
           </ul>
       </nav>
     </div>
-    <div flex-no-shrink>
-      <div ui-include="'../views/blocks/aside.bottom.0.html'"></div>
+    <div flex-no-shrink="">
+      <nav ui-nav="">
+        <ul class="nav">
+            <li class="no-bg">
+                <span class="nav-icon">
+                  <i class="material-icons"></i>
+                </span>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                  <span class="nav-text"> Logout</span>
+                  <%end%>
+            </li>
+          </ul>
+        </nav>
     </div>
   </div>
 </div>

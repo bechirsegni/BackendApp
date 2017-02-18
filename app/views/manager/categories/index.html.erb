@@ -9,13 +9,13 @@
       </div>
   </div>
   <%else%>
-  <%@categories.each do |c|%>
+  <%@categories.each do |category|%>
   <div class="row">
     <div class="col-md-10">
-      <%=c.name%>
+      <%=category.name%>
     </div>
     <div class="col-md-1">
-      <p>0 Items</p>
+      <p><%= count = category.products.count %> <% if count > 1 %>Products<% else %>Product<% end %></p>
     </div>
     <div class="col-md-1">
       <p>Delete</p>

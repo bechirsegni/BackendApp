@@ -3,16 +3,17 @@
   <head>
     <title>Dashboard</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'manager', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
   <div class="app" id="app" style="background:white;">
     <%= render 'manager/dashboard/commons/aside'%>
     <%= render 'manager/dashboard/commons/navbar'%>
-    <div ui-view class="app-body" id="view">
+    <div ui-view class="app-body" id="view" style="padding-top: 0rem; min-height:618px">
       <%= yield %>
     </div>
   </div>
     <%#= javascript_include_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'manager', 'data-turbolinks-track' => true %>
   </body>
 </html>

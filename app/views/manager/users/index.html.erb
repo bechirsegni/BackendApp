@@ -10,8 +10,8 @@
   </div>
   <hr>
   <div class="padding">
-    <%@users.managers.each do |c|%>
-        <%= render 'user', c: c%>
+    <%@users.managers.each do |user|%>
+        <%= render 'user', user: user%>
     <%end%>
     <%if @users.employees.empty?%>
     <div class="no_product">
@@ -24,8 +24,8 @@
         </div>
     </div>
     <%else%>
-      <%@users.employees.each do |c|%>
-          <%= render 'user', c: c%>
+      <%@users.employees.each do |user|%>
+          <%= render 'user', user: user%>
       <%end%>
   <%end%>
 </div>
