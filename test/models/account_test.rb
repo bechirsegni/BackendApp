@@ -3,7 +3,8 @@ require 'test_helper'
 class AccountTest < ActiveSupport::TestCase
   test 'account should have valid subdomain' do
     owner = User.new(email: "bechirsegni@gmail.com", password:"12345678",
-                                        password_confirmation:"12345678")
+                                        password_confirmation:"12345678",
+                                         first_name:'bechir', last_name:'segni')
 
     account = Account.new(subdomain: 'hello', owner: owner)
     assert account.valid?
@@ -11,7 +12,8 @@ class AccountTest < ActiveSupport::TestCase
 
   test 'account should not use RESTRICTED_SUBDOMAINS' do
     owner = User.new(email: "bechirsegni@gmail.com", password:"12345678",
-                                        password_confirmation:"12345678")
+                                        password_confirmation:"12345678",
+                                        first_name:'bechir', last_name:'segni')
 
     account = Account.new(subdomain: 'www', owner: owner)
     assert_not account.valid?
@@ -19,7 +21,8 @@ class AccountTest < ActiveSupport::TestCase
 
   test 'account subdomain should be downcased' do
     owner = User.new(email: "bechirsegni@gmail.com", password:"12345678",
-                                        password_confirmation:"12345678")
+                                        password_confirmation:"12345678",
+                                        first_name:'bechir', last_name:'segni')
 
     account = Account.new(subdomain: 'HELLO', owner: owner)
     account.save!
@@ -28,7 +31,8 @@ class AccountTest < ActiveSupport::TestCase
 
   test 'account subdomain format should be valid' do
     owner = User.new(email: "bechirsegni@gmail.com", password:"12345678",
-                                        password_confirmation:"12345678")
+                                        password_confirmation:"12345678",
+                                        first_name:'bechir', last_name:'segni')
 
     account = Account.new(subdomain: 'HELLO', owner: owner)
     assert_match(/\A[\w\-]+\Z/i , account.subdomain.to_s)
@@ -36,7 +40,8 @@ class AccountTest < ActiveSupport::TestCase
 
     test 'account subdomain format should not be valid' do
       owner = User.new(email: "bechirsegni@gmail.com", password:"12345678",
-                                          password_confirmation:"12345678")
+                                          password_confirmation:"12345678",
+                                          first_name:'bechir', last_name:'segni')
 
       account = Account.new(subdomain: '$$$$$', owner: owner)
       assert_no_match(/\A[\w\-]+\Z/i , account.subdomain.to_s)
