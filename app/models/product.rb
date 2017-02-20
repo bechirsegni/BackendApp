@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_attached_file :image, styles: { medium: "600x600>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :image, styles: { medium: "600x600>", thumb: "52x52>" }, default_url: "/images/:style/missing.png"
   serialize :price, Hash
 
   belongs_to :category

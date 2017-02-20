@@ -2,6 +2,7 @@ class User < ApplicationRecord
   before_save { email.downcase! }
   before_save :set_username
 
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   devise :uid, :database_authenticatable, :registerable,

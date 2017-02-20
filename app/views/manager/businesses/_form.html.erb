@@ -1,0 +1,71 @@
+<%= form_for [:manager, @business] , class:'p-x-xs new_form', html: { multipart: true } do |f|%>
+<h6 style="font-size: 1.3rem;">Basic Information</h6>
+<div class="form-group row">
+  <%=f.label 'Business Name', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :name, class:'form-control', placeholder:'Business Name'%>
+  </div>
+</div>
+<div class="form-group row">
+  <%=f.label 'Business Bio', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_area :description, class:'form-control', placeholder:'Business Bio'%>
+  </div>
+</div>
+<h6 style="font-size: 1.3rem;">Location</h6>
+<div class="form-group row">
+  <%=f.label 'Street Address', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :address, class:'form-control', placeholder:'Street Address'%>
+  </div>
+</div>
+<div class="form-group row">
+  <%=f.label 'City', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :city, class:'form-control', placeholder:'City'%>
+  </div>
+</div>
+<div class="form-group row">
+  <%=f.label 'Postal Code', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :postal, class:'form-control', placeholder:'Postal Code'%>
+  </div>
+</div>
+<hr>
+
+<div class="form-group row">
+  <%=f.label 'Phone', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :phone, class:'form-control', placeholder:'Phone'%>
+  </div>
+</div>
+<div class="form-group row">
+  <%=f.label 'Email', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.email_field :email, class:'form-control', placeholder:'Phone'%>
+  </div>
+</div>
+
+<div class="form-group row">
+  <%=f.label 'Facebok', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :facebook, class:'form-control', placeholder:'Facebook'%>
+  </div>
+</div>
+
+<div class="form-group row">
+  <%=f.label 'Twitter', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :twitter, class:'form-control', placeholder:'@handle'%>
+  </div>
+</div>
+<div class="form-group row">
+  <%=f.label 'Website', class:'col-sm-3 form-control-label'%>
+  <div class="col-sm-9">
+    <%=f.text_field :website, class:'form-control', placeholder:'Website'%>
+  </div>
+</div>
+
+<%=f.submit 'Save', class:'btn btn-regular' ,style:'background:#2996cc; color:white;'%>
+
+<%end%>

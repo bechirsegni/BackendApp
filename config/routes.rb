@@ -29,6 +29,12 @@ Rails.application.routes.draw do
 
       resources :categories
       resources :products
+      resources :businesses
+    end
+
+    namespace :menu do
+      get '/',     to: 'products#index'
+      get 'index', to: 'products#index'
     end
   end
 
